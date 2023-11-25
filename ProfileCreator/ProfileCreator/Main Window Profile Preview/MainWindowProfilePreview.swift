@@ -194,25 +194,23 @@ class MainWindowProfilePreviewViewController: NSViewController {
 
     public func updateSelection(profile: Profile) {
         self.textFieldTitle.stringValue = profile.settings.title
-        if profile.versionFormatSupported {
 
-            // Remove existing views
-            self.textFieldDescription.removeFromSuperview()
-            self.profilePreviewEditorView?.removeFromSuperview()
+        // Remove existing views
+        self.textFieldDescription.removeFromSuperview()
+        self.profilePreviewEditorView?.removeFromSuperview()
+
+        if profile.versionFormatSupported {
+            var constraints = [NSLayoutConstraint]()
 
             // Create the new settings preview view
             self.profilePreviewEditorView = ProfileEditorSettingsView(profile: profile)
+            self.insertPreviewView(subview: self.profilePreviewEditorView!, constraints: &constraints)
 
-            guard let profilePreviewEditorView = self.profilePreviewEditorView else { return }
-            insert(subview: profilePreviewEditorView)
-
+            NSLayoutConstraint.activate(constraints)
         } else {
-
-            self.profilePreviewEditorView?.removeFromSuperview()
-
             var constraints = [NSLayoutConstraint]()
-            self.setupAndInsertTextFieldDescription(constraints: &constraints)
 
+            self.setupAndInsertTextFieldDescription(constraints: &constraints)
             NSLayoutConstraint.activate(constraints)
 
             self.textFieldDescription.stringValue = "This profile is saved in an older format and cannot be read by this version of ProfileCreator.\n\nTo add this profile to the application again you need to export it as a .mobileconfig using ProfileCreator Beta 4 (0.1-4).\n\nTo learn more, please read the release notes for Beta 5."
@@ -222,7 +220,7 @@ class MainWindowProfilePreviewViewController: NSViewController {
     // MARK: -
     // MARK: Setup Layout Constraints
 
-    private func insert(subview: NSView) {
+    private func insertPreviewView(subview: NSView, constraints: inout [NSLayoutConstraint]) {
 
         // ---------------------------------------------------------------------
         //  Setup Variables
