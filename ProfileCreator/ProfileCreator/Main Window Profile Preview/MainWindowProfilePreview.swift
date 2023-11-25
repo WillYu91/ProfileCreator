@@ -181,6 +181,7 @@ class MainWindowProfilePreviewViewController: NSViewController {
         //  Create and add TextField
         // ---------------------------------------------------------------------
         self.setupTextFieldTitle(constraints: &constraints)
+        self.setupAndInsertTextFieldDescription(constraints: &constraints)
 
         // ---------------------------------------------------------------------
         //  Activate Layout Constraints
