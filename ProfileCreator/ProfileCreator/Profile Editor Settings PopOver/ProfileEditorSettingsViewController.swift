@@ -265,14 +265,6 @@ class ProfileEditorSettingsView: NSView {
                                               multiplier: 1,
                                               constant: 20))
 
-        constraints.append(NSLayoutConstraint(item: self,
-                                              attribute: .width,
-                                              relatedBy: .equal,
-                                              toItem: self,
-                                              attribute: .width,
-                                              multiplier: 1,
-                                              constant: 0))
-
         frameHeight += 20.0
 
         // ---------------------------------------------------------------------
