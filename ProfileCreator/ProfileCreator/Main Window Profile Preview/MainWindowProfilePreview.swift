@@ -51,6 +51,14 @@ class MainWindowProfilePreviewController: NSObject {
                                               multiplier: 1.0,
                                               constant: kEditorPreferencesWindowWidth * 1.2))
 
+        constraints.append(NSLayoutConstraint(item: self.view,
+                                              attribute: .width,
+                                              relatedBy: .greaterThanOrEqual,
+                                              toItem: nil,
+                                              attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+                                              multiplier: 1.0,
+                                              constant: kEditorPreferencesWindowWidth))
+
         // ---------------------------------------------------------------------
         //  Activate Layout Constraints
         // ---------------------------------------------------------------------
