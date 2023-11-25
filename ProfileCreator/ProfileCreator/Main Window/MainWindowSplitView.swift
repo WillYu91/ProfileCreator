@@ -213,6 +213,7 @@ class MainWindowSplitView: NSSplitView {
         //  Add constraints
         // ---------------------------------------------------------------------
 
+        // Max Width
         constraints.append(NSLayoutConstraint(item: self.profilePreviewController.view,
                                               attribute: .width,
                                               relatedBy: .lessThanOrEqual,
@@ -221,6 +222,7 @@ class MainWindowSplitView: NSSplitView {
                                               multiplier: 1.0,
                                               constant: kEditorPreferencesWindowWidth * 1.2))
 
+        // Min Width
         constraints.append(NSLayoutConstraint(item: self.profilePreviewController.view,
                                               attribute: .width,
                                               relatedBy: .greaterThanOrEqual,
