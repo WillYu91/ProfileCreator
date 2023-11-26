@@ -27,7 +27,7 @@ class MainWindowProfilePreviewController: NSObject {
         //  Setup Effect View (Background)
         // ---------------------------------------------------------------------
         self.view.translatesAutoresizingMaskIntoConstraints = false
-        self.view.material = .menu
+        self.view.material = .sidebar
         self.view.blendingMode = .behindWindow
         self.view.state = .active
 
